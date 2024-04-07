@@ -50,7 +50,7 @@ router.patch("/:name", function (req, res, next){
     }catch(e){
         return next(e);
     }
-}
+})
 
 router.delete("/:name", function(req, res, next){
     let foundItem = list.find(item => item.name === req.params.name);

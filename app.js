@@ -1,7 +1,7 @@
 const express = require("express");
 const app  = express();
-const ExpressError = require("./epressError");
-const listRoutes = require(".routes/list")
+const ExpressError = require("./expressError");
+const listRoutes = require("./routes/list")
 
 app.use(express.json());
 app.use("/list", listRoutes)

@@ -19,13 +19,13 @@ router.get("/:name", function(req, res){
 router.post("/", function(req, res, next){
     try{
 
-        // change all the '.query.' to '.body.'
-        if(!req.query.name || !req.query.price){
+        
+        if(!req.body.name || !req.body.price){
             throw new ExpressError("Name and price required", 400);
         }
         const newItem = {
-        name: req.query.name,
-        price: req.query.price
+        name: req.body.name,
+        price: req.body.price
         }
 
         list.push(newItem);
@@ -38,14 +38,14 @@ router.post("/", function(req, res, next){
 })
 
 router.patch("/:name", function (req, res, next){
-     // change all the '.query.' to '.body.'
+     
     try{
         let foundItem = list.find(item => item.name === req.params.name);
         if(foundItem === undefined){
         throw new ExpressError("Item not found", 404)
         }
-        foundItem.name = req.query.name;
-        foundItem.price = req.query.name;
+        foundItem.name = req.body.name;
+        foundItem.price = req.body.price;
         return res.status(201).json({item: foundItem})
     }catch(e){
         return next(e);

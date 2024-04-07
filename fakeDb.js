@@ -1,3 +1,3 @@
-global.items = []
+global.list = []
 
-module.exports = items
+module.exports = list
